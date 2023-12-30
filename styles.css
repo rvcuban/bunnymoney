@@ -1,0 +1,348 @@
+
+    body {
+        background-color: #b2f9ff; /* Color de fondo crema */
+
+        height: 100vh; /* Altura completa de la ventana */
+        overflow: hidden; 
+    }
+
+    header#brandHeader {
+        width: 100%;
+       
+        padding: 10px 0;
+        position: relative;
+        z-index: 3;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .main-container {
+        display: flex; /* Usamos Flexbox */
+        justify-content: center; /* Centrar horizontalmente */
+        align-items: center; /* Alinear al inicio verticalmente */
+        padding: 20px; /* Espaciado alrededor */
+        
+    }
+
+
+    header#brandHeader img {
+        width: 10%; /* Ajusta este valor para cambiar el tamaño de la imagen */
+        height: auto; /* Mantiene la relación de aspecto de la imagen */
+    }
+
+
+    #gameBoard {
+        position: relative;
+        margin-top: 10px;
+        margin-right: 20px; 
+        width: 300px;
+        height: 300px;
+       
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra más grande para dar sensación de elevación */
+        background-color: #fff; /* Color blanco para el tablero */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2; /* Asegurar que el tablero esté sobre la base */
+        border-radius: 10px; /* Bordes redondeados para el tablero */
+    }
+
+    #gameBoard::after {
+        content: '';
+        position: absolute;
+        top: 50%; /* Posicionamiento centrado verticalmente, ajustar si es necesario */
+        left: 50%;
+        width: 340px; /* Un poco más ancho que el tablero para dar sensación de base */
+        height: 50px; /* Altura de la base */
+        background-color: #8B4513; /* Color de la base */
+        border-radius: 5px; /* Bordes redondeados para la base */
+        z-index: -1; /* Debajo del tablero */
+        transform: translate(-50%, 20px) rotateX(-90deg); /* Ajuste para posicionar la base debajo del tablero */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Sombra para la base */
+    }
+    .house {
+        position: absolute;
+        width: 40px; /* Ajusta el tamaño según sea necesario */
+        height: 40px; /* Ajusta el tamaño según sea necesario */
+        background: url('caban2.png') no-repeat center center; /* Cambia la ruta según tu estructura de carpetas */
+        background-size: cover; /* Asegúrate de que la imagen cubra toda el área */
+        transform: translate(-50%, -50%); 
+        transform-origin: bottom; 
+        z-index: 6;
+    }
+
+    .house .house-label {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff;
+        font-weight: bold;
+    }
+
+    /* Resto del código... */
+
+    #gameControls {
+        text-align: center;
+        margin-top: 20px;
+        z-index: 3;
+    }
+
+    #houseSelection {
+        margin-right: 10px;
+        z-index: 2;
+        margin-bottom: 10px;
+    }
+
+    #coinCount {
+        display: inline-block;
+        margin-right: 15px;
+        font-size: 16px;
+    ;
+    }
+
+    /* Posicionamiento circular de las casas */
+    #house1 { top: 40%; left: 90%; }
+    #house2 { top: 20%; left: 80%; }
+    #house3 { top: 10%; left: 50%; }
+    #house4 { top: 20%; left: 20%; }
+    #house5 { top: 50%; left: 10%; }
+    #house6 { top: 80%; left: 20%; }
+    #house7 { top: 90%; left: 50%; }
+    #house8 { top: 80%; left: 80%; }
+    #house9 { top: 60%; left: 90%; }
+
+    #rabbit {
+        position: absolute;
+        width: 40px; /* Puedes ajustar esto según el tamaño de tu imagen */
+        height: 40px; /* Puedes ajustar esto según el tamaño de tu imagen */
+        background: url('sdmakdm.png') no-repeat center center;
+        background-size: contain; /* Esto ajustará tu imagen dentro del div */
+        top: 50%; 
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: top 0.5s ease, left 0.5s ease;
+        z-index: 5;
+    }
+
+
+    #withdrawSection {
+        text-align: center;
+        margin-top: 20px;
+        z-index: 2;
+    }
+
+    #withdrawMenu {
+        margin-top: 10px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        background-color: #f9f9f9;
+        z-index: 2;
+    }
+
+    #withdrawMenu p {
+        margin: 10px 0;
+    
+    }
+
+    #confirmWithdrawal {
+        padding: 5px 15px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    #confirmWithdrawal:hover {
+        background-color: #45a049;
+    }
+
+
+    .cloud {
+        position: fixed;
+        background: url('nube2.png') no-repeat center center; /* Cambia esto por la ruta de tu imagen de nube */
+        background-size: contain; /* Esto asegura que la imagen de la nube se ajuste al div */
+        opacity: 0.6; /* Ajusta la transparencia según necesites */
+        z-index: -1; /* Asegúrate de que las nubes estén detrás del tablero */
+        animation: moveClouds 30s linear infinite; /* La animación se aplica aquí */
+    }
+
+
+
+
+
+    /*apuestas */
+
+    .apuestas-section {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5); /* Sombra más grande para dar sensación de elevación */
+        background-color: #fff; 
+        width: auto;
+        padding: 20px;
+        border-radius: 10px;
+        margin-top: 10px;
+        font-family: 'Poppins', sans-serif;
+    }   
+
+    #houseOptions .form-check {
+        margin-bottom: 10px;
+    }   
+
+    .apuestas-section h3 {
+        margin-top: -10px;
+        margin-bottom: 15px; /* Espacio debajo del título */
+    }
+
+    #houseOptions {
+        margin-bottom: 10px; /* Espaciado entre opciones */
+    }
+
+
+    .form-check-label {
+        background: linear-gradient(to right, #f06292, #f38181);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 20px;
+        display: block;
+        margin: 10px 0;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+    
+    .form-check-input {
+        display: none;
+    }
+    
+    .form-check-input:checked + .form-check-label {
+        transform: scale(1.05);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn-success {
+        background: linear-gradient(to right, #56ab2f, #a8e063);
+        border: none;
+        padding: 5px 20px;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Añade efectos de hover y focus para mejorar la interactividad */
+    .form-check-label:hover,
+    .btn-success:hover,
+    .btn-success:focus {
+        transform: scale(1.02);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+
+
+
+    /*animaciones */
+    @keyframes moveClouds {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+    }
+    .cloud:nth-child(2) {
+        top: 20vh; /* Posición vertical de la segunda nube */
+        left: 10vw; /* Posición horizontal inicial */
+        width: 600px; /* Ancho de la nube */
+        height: 300px; /* Altura de la nube */
+        animation-duration: 120s; 
+    }
+
+    .cloud:nth-child(9) {
+        top: 20vh; /* Posición vertical de la segunda nube */
+        left: 15vw; /* Posición horizontal inicial */
+        width: 600px; /* Ancho de la nube */
+        height: 300px; /* Altura de la nube */
+        animation-duration: 120s; 
+    }
+
+    .cloud:nth-child(3) {
+        top: 50vh;
+        left: 70vw;
+        width: 800px;
+        height: 500px;
+        animation-duration: 90s;
+    }
+    .cloud:nth-child(4) {
+        top: 40vh;
+        left: 20vw;
+        width: 400px;
+        height: 500px;
+        animation-duration: 70s;
+    }
+    .cloud:nth-child(5) {
+        top: 30vh;
+        left: 10vw;
+        width: 500px;
+        height: 250px;
+        animation-duration: 40s;
+    }
+    .cloud:nth-child(6) {
+        top: 50vh;
+        left: 70vw;
+        width: 700px;
+        height: 350px;
+        animation-duration: 110s;
+    }
+    .cloud:nth-child(7) {
+        top: 20vh;
+        left: 60vw;
+        width: 900px;
+        height: 500px;
+        animation-duration: 90s;
+    }
+
+
+
+    button {
+        background-color: #4CAF50; /* Color de fondo verde */
+        color: white; /* Texto blanco */
+        padding: 10px 20px; /* Espaciado interno */
+        border: none; /* Sin bordes */
+        border-radius: 5px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
+        transition: all 0.3s; /* Transición suave para efectos hover y focus */
+        cursor: pointer; /* Cursor de mano */
+        z-index: 100;
+    }
+    
+    button:hover, button:focus {
+        background-color: #45a049; /* Color de fondo más oscuro al pasar el mouse */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Sombra más grande al pasar el mouse */
+        transform: translateY(-2px); /* Elevación ligera al pasar el mouse */
+    }
+    
+    button:active {
+        background-color: #3e8e41; /* Color de fondo aún más oscuro al hacer clic */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra reducida al hacer clic */
+        transform: translateY(1px); /* Posición ligeramente baja al hacer clic */
+    }
+
+    #coinCount {
+        display: inline-block;
+        background-color: #ffd700; /* Color dorado para el fondo, simulando oro */
+        color: #000; /* Texto en color negro para contraste */
+        padding: 5px 10px; /* Espaciado interno */
+        border-radius: 5px; /* Bordes redondeados */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave */
+        font-family: 'Arial', sans-serif; /* Fuente moderna y legible */
+        font-size: 16px; /* Tamaño de letra adecuado */
+        font-weight: bold; /* Texto en negrita */
+        text-align: center; /* Alineación del texto */
+        margin: 0 10px; /* Margen para separarlo de otros elementos */
+        vertical-align: middle; /* Alineación vertical con otros elementos */
+    }
+    
+    /* Estilo para un ícono de moneda (si decides usar uno) */
+   .coin-icon {
+    display: inline-block;
+    background-image: url('bunnymoney-removebg-preview.png'); /* Asegúrate que la ruta es correcta */
+    background-size: contain;
+    background-repeat: no-repeat; /* Añade esto para evitar repetición */
+    width: 50px; /* Ajusta el ancho según sea necesario */
+    height: 50px; /* Ajusta la altura según sea necesario */
+    vertical-align: middle; /* Alineación vertical con el texto */
+}
